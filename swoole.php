@@ -1,7 +1,10 @@
 <?php
 
 $serv = new swoole_server("0.0.0.0", 9501); 
-
+//
+$serv->on('start',function($server){
+    echo "start";
+});
 //监听连接进入事件
 $serv->on('connect', function ($serv, $fd) {  
     echo "Client: Connect.\n";
