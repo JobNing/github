@@ -8,4 +8,4 @@
 include "PdoClass.php";
 $pdo = new PdoClass();
 $pdo->key();
-echo "<script>alert('生成成功，请联系“123456789”以获取');location.href='share.php'</script>";
+echo "<script>alert('生成成功，请联系“QQ768227981”以获取');location.href='share.php'</script>";

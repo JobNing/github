@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
-    <title>Bootstrap 101 Template</title>
+    <title>获取激活码</title>
 
     <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -31,23 +31,18 @@
 >
     <br>
     <br>
-    <form class="form-horizontal" action="activate.php" method="post">
-        <center><h3>请联系“123456789”获得激活码或“分享”</h3></center>
-        <div class="form-group" >
-            <label for="inputEmail3" class="col-sm-2 control-label">用户名</label>
-            <div class="col-sm-10" >
-                <input type="text" class="form-control" name="user" id="exampleInputEmail1" placeholder="请输入“用户名”">
-            </div>
-        </div>
+    <form class="form-horizontal" action="codes.php" method="post">
+        <center><h3>请联系“QQ768227981”获得激活码或“分享”</h3></center>
         <div class="form-group">
             <label for="inputEmail3" class="col-sm-2 control-label">激活码</label>
             <div class="col-sm-10">
-                <input type="password" class="form-control" name="activate" id="exampleInputEmail1" placeholder="请输入“激活码”">
+                <input type="password" class="form-control" name="key" id="exampleInputEmail1" placeholder="请输入“激活码”">
             </div>
         </div>
         <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
-                <button type="submit" id="btn" class="btn btn-default"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;获取&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
+                <button type="submit" id="btn" class="btn btn-default"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;激活&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
+                <a class="btn btn-default" href="activate.php" role="button">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;获取&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
                 <a class="btn btn-default" href="code.php" role="button">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;分享&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
             </div>
         </div>

@@ -48,18 +48,18 @@ $total = $data['total']
         <td>操作</td>
     </tr>
     <?php foreach ($data['data'] as $k=>$v){?>
-    <tr>
-        <td><?php echo $v['house_type']?></td>
-        <td><?php echo $v['length_width']?></td>
-        <td><?php echo $v['bedroom']?></td>
-        <td><?php echo $v['door']?></td>
-        <td><?php echo $v['drawing_room']?></td>
-        <td><?php echo $v['cookhouse']?></td>
-        <td><?php echo $v['toilet']?></td>
-        <td><img src="<?php echo $v['cad']?>" alt="" width="100"></td>
-        <td><img src="<?php echo $v['images']?>" alt="" width="100"></td>
-        <td><a href="delSection.php?id=<?php echo $v['id']?>">删除</a>|<a href="updSection.php?id=<?php echo $v['id']?>">修改</a></td>
-    </tr>
+        <tr>
+            <td><?php echo $v['house_type']?></td>
+            <td><?php echo $v['length_width']?></td>
+            <td><?php echo $v['bedroom']?></td>
+            <td><?php echo $v['door']?></td>
+            <td><?php echo $v['drawing_room']?></td>
+            <td><?php echo $v['cookhouse']?></td>
+            <td><?php echo $v['toilet']?></td>
+            <td><img src="<?php echo $v['cad']?>" alt="" width="100"></td>
+            <td><img src="<?php echo $v['images']?>" alt="" width="100"></td>
+            <td><a href="delSection.php?id=<?php echo $v['id']?>">删除</a>|<a href="updSection.php?id=<?php echo $v['id']?>">修改</a></td>
+        </tr>
     <?php } ?>
 </table>
 <?php

@@ -13,6 +13,12 @@ class PdoClass
     public function __construct(){
         $this->_pdo = new PDO("mysql:host=localhost;dbname=pdo","root","root");
     }
+    public function codedel($key){
+        $sql = "delete from keyss where keyss =$key";
+        $rs = $this->_pdo->prepare($sql);
+        $rs->execute();
+        return true;
+    }
     public function showkey(){
         $sql = "select * from keyss Order By time Desc";
         $db  = $this->_pdo->query($sql)->fetchAll();
@@ -55,6 +61,10 @@ class PdoClass
         if ($id==''){
             echo "<script>alert('请先登录');location.href='../login.php'</script>";
         }
+    }
+    public function verifys($pwd){
+        $sql = "select * from keyss where keyss='$pwd'";
+        return $this->_pdo->query($sql)->fetchAll();
     }
     public function verify($user,$pwd){
         $sql = "select id,user from user where user='$user' and pwd='$pwd'";
@@ -169,7 +179,7 @@ class PdoClass
                 toilet='$toilet',
                 cad='$cad',
                 images='$images' where id=$id";
-                $rs = $this->_pdo->prepare($sql);
-                $rs->execute();
+        $rs = $this->_pdo->prepare($sql);
+        $rs->execute();
     }
 }

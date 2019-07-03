@@ -41,7 +41,7 @@ $total = $data['total'];
     </tr>
     <?php foreach ($data['data'] as $k=>$v){?>
         <tr>
-            <td><?php echo $v['key']?></td>
+            <td><?php echo $v['keyss']?></td>
             <td><?php echo $v['time']?></td>
         </tr>
     <?php } ?>
