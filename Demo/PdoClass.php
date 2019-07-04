@@ -13,6 +13,10 @@ class PdoClass
     public function __construct(){
         $this->_pdo = new PDO("mysql:host=localhost;dbname=pdo","root","root");
     }
+    public function admin($user,$pwd){
+        $sql = "select id,user from admin where user='$user' and password='$pwd'";
+        return $this->_pdo->query($sql)->fetchAll();
+    }
     public function codedel($key){
         $sql = "delete from keyss where keyss =$key";
         $rs = $this->_pdo->prepare($sql);
@@ -59,7 +63,14 @@ class PdoClass
         session_start();
         $id = $_SESSION['user'];
         if ($id==''){
-            echo "<script>alert('请先登录');location.href='../login.php'</script>";
+            echo "<script>alert('请先登录');location.href='../index.html'</script>";
+        }
+    }
+    public function admins(){
+        session_start();
+        $id = $_SESSION['admin'];
+        if ($id==''){
+            echo "<script>alert('请先登录');location.href='index.php'</script>";
         }
     }
     public function verifys($pwd){
@@ -75,11 +86,12 @@ class PdoClass
         return $this->_pdo->query($sql)->fetchAll();
     }
     public function plus($user){
-        $sql = "update user set start=start+1 where user='$user'";
+        $sql = "update user set start=start+2 where user='$user'";
         $rs = $this->_pdo->prepare($sql);
         $rs->execute();
     }
     public function registers($data){
+
         $father = $_SESSION['father'];
         $str = implode("','",$data);
         $sql = "insert into user values (null ,'$str',3,0,'$father')";
@@ -140,6 +152,12 @@ class PdoClass
         $str = implode("','",$data);
         $sql = "insert into home values (null ,'$str')";
         $this->_pdo->exec($sql);
+    }
+    public function showSections($title){
+        //var_dump($title);die;
+        $sql = "select * from home where bedroom = $title";
+        //var_dump($sql);die;
+        return $this->_pdo->query($sql)->fetchAll();
     }
     public function showSection(){
         $sql = "select * from home";

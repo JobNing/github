@@ -3,7 +3,7 @@ include "PdoClass.php";
 $pdo = new PdoClass();
 $start = $pdo->start();
 if ($start[0]['end']>=$start[0]['start']){
-    echo "<script>alert('三次机会用完（六张户型图机会用完）');location.href='../Demo/share.php'</script>";
+    echo "<script>alert('三次机会用完');location.href='../Demo/share.php'</script>";
 }
 $house_type = $_GET['house_type'];
 $length_width = $_GET['length_width'];
@@ -52,14 +52,8 @@ $pdo->end();
             -moz-background-size: 100% 100%;color: black"
         id="img"
 >
-
-
-    <div style="background-color: red;width: 100%;height: 90%">
-
-        <div style="background-color: yellow;width: 50%;height: 100%;display:inline-block" >
-            <img width="100%" height="100%" src="<?php echo $data['data'][0]['cad']?>" alt="">
-        </div>
-        <div style="float:left ;background-color: blue;width: 50%;height: 100%;display:inline-block;vertical-align: top;">
+    <div style="background-color: white;width: 100%;height: 90%">
+        <div style="margin-left:25%;float:left ;background-color: blue;width: 50%;height: 100%;display:inline-block;vertical-align: top;">
             <img width="100%" height="100%" src="<?php echo $data['data'][0]['images']?>" alt="">
         </div>
     </div>
@@ -91,6 +85,7 @@ $pdo->end();
                         cookhouse=$cookhouse&
                         toilet=$toilet'>下一页</a>" ;
         } ?>
+        <a href="curl.php?url=<?php echo $data['data'][0]['cad']?>">下载CAD文件</a>
     </div>
 
 

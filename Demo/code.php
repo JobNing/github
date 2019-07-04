@@ -20,3 +20,5 @@ $father=$_SESSION['user'];
 //imagepng($QR, 'qrcode/qrcode.png');
 //imagedestroy($QR);
 echo "<img src='qrcode/qrcode.png'>";
+echo "<br>分享用户注册成功后，点击&nbsp;&nbsp;<a href='home.php'>返回</a>&nbsp;&nbsp;即可查看"
+?>

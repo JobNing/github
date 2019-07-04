@@ -1,15 +1,21 @@
 <?php
-    include "PdoClass.php";
-    $pdo = new PdoClass();
-    $data = $pdo->showSection();
-    $cpage = $data['cpage'];
-    $start = $data['start'];
-    $end = $data['end'];
-    $pagenum = $data['pagenum'];
-    $prev = $data['prev'];
-    $next = $data['next'];
-    $total = $data['total'];
-    $pdo->admins();
+/**
+ * Created by PhpStorm.
+ * User: asus
+ * Date: 2019/7/4
+ * Time: 9:40
+ */
+include "PdoClass.php";
+$pdo = new PdoClass();
+$title = $_POST['title'];
+if ($title==''){
+    echo "<script>location.href='showSection.php'</script>";
+}
+
+$data = $pdo->showSections($title);
+
+$pdo->admins();
+
 ?>
 <!DOCTYPE html>
 <html lang="zh-CN">
@@ -54,7 +60,7 @@
         <td>图片</td>
         <td>操作</td>
     </tr>
-    <?php foreach ($data['data'] as $k=>$v){?>
+    <?php foreach ($data as $k=>$v){?>
         <tr>
             <td><?php echo $v['house_type']?></td>
             <td><?php echo $v['length_width']?></td>
@@ -69,28 +75,6 @@
         </tr>
     <?php } ?>
 </table>
-<?php
-echo '<table align="center" width="800" border="1">';
-echo "共<b>$total</b>条记录，本页显示<b>{$start}-{$end}</b> {$cpage}/{$pagenum}";
-if($cpage==1)
-    echo "  首页  ";
-else
-    echo "  <a href='?page=1'>首页</a>  ";
-if($prev)
-    echo "  <a href='?page={$prev}'>上一页</a>  ";
-else
-    echo "  上一页  ";
-if($next)
-    echo "  <a href='?page={$next}'>下一页</a>  ";
-else
-    echo "  下一页  ";
-if($cpage==$pagenum)
-    echo "  尾页  ";
-else
-    echo "  <a href='?page={$pagenum}'>尾页</a>  ";
-echo '</td></tr>';
-echo '</table>';
-?>
 <a class="btn btn-default" href="insertSection.php" role="button">添加户型</a>
 <a class="btn btn-default" href="key.php" role="button">查看激活码</a>
 <!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
